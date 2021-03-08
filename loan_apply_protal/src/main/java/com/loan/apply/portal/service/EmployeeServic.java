@@ -6,14 +6,14 @@ import org.springframework.stereotype.Service;
 import com.loan.apply.portal.details.Employement;
 import com.loan.apply.portal.repos.Employerepo;
 @Service
-public class Employee_Service  implements EmployeeService
+public class EmployeeServic  implements EmployeeService
 {
 	@Autowired
-   private Employerepo Er;
+   private Employerepo er;
 	@Override
-	public String CreateEmp(Employement emp,String id) {
+	public String createEmp(Employement emp,String id) {
 		emp.setUserid(id);
-		Er.save(emp);
+		er.save(emp);
 		return "employement details added";
 	}
 	

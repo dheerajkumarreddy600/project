@@ -1,5 +1,8 @@
 package com.loan.apply.portal.details;
 
+import javax.validation.constraints.NotNull;
+
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -11,17 +14,17 @@ public class Employement {
      private String id;
    
      private String userid;
-     
+     @NotNull
      private String schooling ;
-     
+     @NotNull
      private String inter;
-     
-     private String Graduation;
-     
-     private String Occupation;
-     
+     @NotNull
+     private String graduation;
+     @NotNull
+     private String occupation;
+     @NotNull
      private String workExpirence;
-     
+     @NotNull
      private float monthlyincome;
 	public String getId() {
 		return id;
@@ -48,16 +51,16 @@ public class Employement {
 		this.inter = inter;
 	}
 	public String getGraduation() {
-		return Graduation;
+		return graduation;
 	}
 	public void setGraduation(String graduation) {
-		Graduation = graduation;
+		this.graduation = graduation;
 	}
 	public String getOccupation() {
-		return Occupation;
+		return occupation;
 	}
 	public void setOccupation(String occupation) {
-		Occupation = occupation;
+		this.occupation = occupation;
 	}
 	public String getWorkExpirence() {
 		return workExpirence;
@@ -74,9 +77,8 @@ public class Employement {
 	@Override
 	public String toString() {
 		return "Employement [id=" + id + ", userid=" + userid + ", schooling=" + schooling + ", inter=" + inter
-				+ ", Graduation=" + Graduation + ", Occupation=" + Occupation + ", workExpirence=" + workExpirence
+				+ ", graduation=" + graduation + ", occupation=" + occupation + ", workExpirence=" + workExpirence
 				+ ", monthlyincome=" + monthlyincome + "]";
 	}
-      
-     
+	
 }

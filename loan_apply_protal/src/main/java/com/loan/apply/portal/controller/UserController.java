@@ -6,8 +6,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,16 +19,16 @@ import com.loan.apply.portal.repos.Userrepo;
 import com.loan.apply.portal.service.UserService;
 
 @RestController
-public class User_controller {
+public class UserController {
 	@Autowired
 	private Userrepo ur;
 	@Autowired
 	private UserService us;
 	@PostMapping("/Adddetails")
-	public ResponseEntity<?> CreateUser( @ Valid @NotNull @RequestBody User use) {
+	public String createUser( @Valid @NotNull @RequestBody User use) {
 		
-		us.CreateUser(use);
-		return new ResponseEntity<User>(use,HttpStatus.OK);
+	return 	us.createUser(use);
+		
 	}
 	@GetMapping("/Findall")
 	public List<User> getUser(){

@@ -2,6 +2,8 @@ package com.loan.apply.portal.details;
 
 
 
+import javax.validation.constraints.NotNull;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -11,27 +13,15 @@ public class Loandetails {
 	private String id;
 	
 	private String userid;
-	
-	private String LoanType;
-
-	private float LoanAmount;
+	@NotNull
+	private String loanType;
+	@NotNull
+	private float loanAmount;
 	public String getId() {
 		return id;
 	}
 	public void setId(String id) {
 		this.id = id;
-	}
-	public String getLoanType() {
-		return LoanType;
-	}
-	public void setLoanType(String loanType) {
-		LoanType = loanType;
-	}
-	public float getLoanAmount() {
-		return LoanAmount;
-	}
-	public void setLoanAmount(float loanAmount) {
-		LoanAmount = loanAmount;
 	}
 	public String getUserid() {
 		return userid;
@@ -39,11 +29,22 @@ public class Loandetails {
 	public void setUserid(String userid) {
 		this.userid = userid;
 	}
+	public String getLoanType() {
+		return loanType;
+	}
+	public void setLoanType(String loanType) {
+		this.loanType = loanType;
+	}
+	public float getLoanAmount() {
+		return loanAmount;
+	}
+	public void setLoanAmount(float loanAmount) {
+		this.loanAmount = loanAmount;
+	}
 	@Override
 	public String toString() {
-		return "Loandetails [id=" + id + ", userid=" + userid + ", LoanType=" + LoanType + ", LoanAmount=" + LoanAmount
+		return "Loandetails [id=" + id + ", userid=" + userid + ", loanType=" + loanType + ", loanAmount=" + loanAmount
 				+ "]";
 	}
 	
-   
 }

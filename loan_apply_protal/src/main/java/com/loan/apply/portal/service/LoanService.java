@@ -7,17 +7,17 @@ import org.springframework.stereotype.Service;
 import com.loan.apply.portal.details.Loandetails;
 import com.loan.apply.portal.repos.Loanrepo;
 @Service
-public class LoanService implements Loan_service {
+public class LoanService implements Loanservic {
 	@Autowired
    private Loanrepo lr;
 	@Override
-	public String CreateLoan(Loandetails ln, String id) {
+	public String createLoan(Loandetails ln, String id) {
 	   ln.setUserid(id);
 	   lr.save(ln);
 		return "details added";
 	}
 	@Override
-	public float Getemi(String id, float months) {
+	public float getemi(String id, float months) {
 		
 		Loandetails c=getbyid(id);
 		float x=c.getLoanAmount();
@@ -27,8 +27,9 @@ public class LoanService implements Loan_service {
 	
 	}
 	public Loandetails getbyid(String id) {
-		Loandetails current=lr.findUserByuserid(id);
-		return current;
+		
+		return lr.findUserByuserid(id);
+
 	}
    
 	   public float emi(float x,float m) {

@@ -3,28 +3,35 @@ package com.loan.apply.portal.controller;
 
 
 
+
+
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.loan.apply.portal.details.Employement;
+import com.loan.apply.portal.service.EmployeeServic;
 
-import com.loan.apply.portal.service.Employee_Service;
 @RestController
-public class Employee_Contoller {
+public class EmployeeContoller {
 	
 	@Autowired
-	private Employee_Service Es;
+	private EmployeeServic es;
+	
 	@PostMapping("/AddEmp/{id}")
-	public ResponseEntity<?> CreateEmp(@RequestBody Employement emp , @PathVariable String id) {
+	public String  createEmp(@Valid @NotNull @RequestBody Employement emp , @PathVariable String id) {
 		
-		Es.CreateEmp(emp,id);
-		return new ResponseEntity<Employement>(emp,HttpStatus.OK);
+	return 	es.createEmp(emp,id);
+		
 	}
 	
-
 }
+	
+
+
