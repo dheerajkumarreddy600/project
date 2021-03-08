@@ -16,17 +16,12 @@ public class User {
 	@NotNull(message ="Age is mandatory")
        private String Age;
 	@NotNull(message ="cannot be null")
-       private int phonenumber;
+       private String phonenumber;
 	@NotNull(message ="cannot be null")
        private String Idproof;
 	@NotNull(message ="cannot be null")
        private String Address;
-	@NotNull(message ="cannot be null")
-       private String Educationdetails;
-	@NotNull(message ="cannot be null")
-       private String Loandetails;
-	@NotNull(message ="cannot be null")
-       private int loanAmount;
+	
 	public String getId() {
 		return id;
 	}
@@ -51,10 +46,10 @@ public class User {
 	public void setAge(String age) {
 		Age = age;
 	}
-	public int getPhonenumber() {
+	public String getPhonenumber() {
 		return phonenumber;
 	}
-	public void setPhonenumber(int phonenumber) {
+	public void setPhonenumber(String phonenumber) {
 		this.phonenumber = phonenumber;
 	}
 	public String getIdproof() {
@@ -69,30 +64,12 @@ public class User {
 	public void setAddress(String address) {
 		Address = address;
 	}
-	public String getEducationdetails() {
-		return Educationdetails;
-	}
-	public void setEducationdetails(String educationdetails) {
-		Educationdetails = educationdetails;
-	}
-	public String getLoandetails() {
-		return Loandetails;
-	}
-	public void setLoandetails(String loandetails) {
-		Loandetails = loandetails;
-	}
-	public int getLoanAmount() {
-		return loanAmount;
-	}
-	public void setLoanAmount(int loanAmount) {
-		this.loanAmount = loanAmount;
-	}
+	
 	@Override
 	public String toString() {
 		return "user [id=" + id + ", Firstname=" + Firstname + ", Lastname=" + Lastname + ", Age=" + Age
 				+ ", phonenumber=" + phonenumber + ", Idproof=" + Idproof + ", Address=" + Address
-				+ ", Educationdetails=" + Educationdetails + ", Loandetails=" + Loandetails + ", loanAmount="
-				+ loanAmount + "]";
+				+ ", Educationdetails=" +  "]";
 	}
        
        
