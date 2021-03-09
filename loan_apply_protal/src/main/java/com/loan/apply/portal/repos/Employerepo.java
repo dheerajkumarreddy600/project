@@ -7,5 +7,5 @@ import com.loan.apply.portal.details.Employement;
 @Repository
 public  interface Employerepo extends MongoRepository<Employement,String> {
 	
-
+   Employement findUserByuserid(String id);
 }

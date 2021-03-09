@@ -9,6 +9,7 @@ import com.loan.apply.portal.details.User;
 public interface Userrepo extends MongoRepository<User,String>{
     
 User findByphonenumber(String phonenumber);
+ User findUserByid(String id);
 
 
 }

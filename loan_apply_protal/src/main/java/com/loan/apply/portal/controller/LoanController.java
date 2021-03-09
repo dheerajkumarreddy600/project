@@ -5,6 +5,8 @@ package com.loan.apply.portal.controller;
 
 
 import javax.validation.Valid;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import javax.validation.constraints.NotNull;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,11 +15,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.loan.apply.portal.details.Loandetails;
 import com.loan.apply.portal.service.LoanService;
 @RestController
+@RequestMapping("/api")
 public class LoanController {
 	@Autowired
 	private LoanService ls;
@@ -28,9 +32,19 @@ public class LoanController {
 		
 	}
 	@GetMapping("/emi/{id}")
-	public String getemi(@PathVariable String id, @RequestBody float months){
+	public String getemi(@PathVariable String id,  @RequestParam(name="months") float months){
 		float x= ls.getemi(id,months);
 		
 		return "emi for "+months+" months is:"+x;
+	}
+	@PostMapping("/Applyloan/{id}")
+	public String applyLoan(@PathVariable String id) {
+	return 	ls.applyLoan(id);
+		
+	}
+	@GetMapping("/getApplication/{id}")
+	public String getApplication(@PathVariable String id)
+	{
+		return ls.getApplication(id);
 	}
 }
