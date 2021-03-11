@@ -48,6 +48,7 @@ public class UserService implements UserServic {
 
 	@Override
 	public String deleteUser(String id) {
+		
 		ApplicationForm af=getform(id);
 		
 		Loandetails ln=getbyid(id);

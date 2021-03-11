@@ -27,9 +27,13 @@ public class EmployeeContoller {
 	
 	@PostMapping("/AddEmp/{id}")
 	public String  createEmp(@Valid @NotNull @RequestBody Employement emp , @PathVariable String id) {
+		try {
 		
 	return 	es.createEmp(emp,id);
-		
+		}
+		catch(Exception e) {
+			return "user not found"+e;
+		}
 	}
 	
 }

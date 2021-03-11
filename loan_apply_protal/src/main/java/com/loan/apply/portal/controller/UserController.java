@@ -42,7 +42,12 @@ public class UserController {
 	@DeleteMapping("/deleteUser/{id}")
 	public String deleteUser(@PathVariable String id)
 	{
-		return us.deleteUser(id);
+		String st= us.deleteUser(id);
+		if(st=="") {
+			return "Invalid id";
+		}
+		else
+			return st;
 	}
 
 	

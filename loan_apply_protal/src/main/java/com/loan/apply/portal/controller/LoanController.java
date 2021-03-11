@@ -33,18 +33,31 @@ public class LoanController {
 	}
 	@GetMapping("/emi/{id}")
 	public String getemi(@PathVariable String id,  @RequestParam(name="months") float months){
+		try {
 		float x= ls.getemi(id,months);
 		
 		return "emi for "+months+" months is:"+x;
+		}
+		catch(Exception e) {
+			return ""+e;
+		}
 	}
 	@PostMapping("/Applyloan/{id}")
 	public String applyLoan(@PathVariable String id) {
+		try {
 	return 	ls.applyLoan(id);
 		
 	}
+		catch(Exception e) {
+			return "user not found"+e;		}
+	}
 	@GetMapping("/getApplication/{id}")
 	public String getApplication(@PathVariable String id)
-	{
+	{try {
 		return ls.getApplication(id);
+	}
+	catch(Exception e) {
+		return "userNot found  "+e;
+	}
 	}
 }

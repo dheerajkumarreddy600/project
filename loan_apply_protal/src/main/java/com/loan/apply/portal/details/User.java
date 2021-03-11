@@ -1,7 +1,7 @@
 package com.loan.apply.portal.details;
 
 import javax.validation.constraints.NotNull;
-
+import javax.validation.constraints.Size;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -12,12 +12,14 @@ public class User {
 	@Id
        private String id;
 	@NotNull(message =" first name cannot be null")
+	@Size(min = 3, max = 40)
        private String firstname;
 	@NotNull(message ="Last name cannot be null")
        private String lastname;
 	@NotNull(message ="Age is mandatory")
        private String age;
 	@NotNull(message ="cannot be null")
+	@Size(min=10,max=10)
        private String phonenumber;
 	@NotNull(message ="cannot be null")
        private String idproof;
